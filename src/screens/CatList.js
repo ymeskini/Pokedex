@@ -1,7 +1,8 @@
 import React from 'react';
-import {Text} from 'react-native';
+import {Text, View} from 'react-native';
 import {useSelector, useDispatch} from 'react-redux';
 import {
+  Button,
   List,
   ListItem,
   Right,
@@ -9,6 +10,7 @@ import {
   Icon,
   Container,
   Content,
+  Header,
 } from 'native-base';
 import {setCatView} from '../slices/cats';
 
@@ -18,6 +20,13 @@ const CatList = ({navigation}) => {
 
   return (
     <Container>
+      <Header>
+        <View>
+          <Button onPress={() => navigation.navigate('CreateCat')}>
+            <Text>New</Text>
+          </Button>
+        </View>
+      </Header>
       <Content padder>
         <List>
           {cats.map(cat => (

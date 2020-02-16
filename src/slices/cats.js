@@ -1,18 +1,18 @@
 import {createSlice} from '@reduxjs/toolkit';
-import uniqueId from 'lodash/uniqueId';
+import uuid from 'uuid/v4';
 
 const cats = createSlice({
   name: 'cats',
   initialState: {
     list: [
       {
-        id: uniqueId(),
+        id: uuid(),
         name: 'Billy',
         breed: 'Bengal',
         description: 'Amazing cat',
       },
       {
-        id: uniqueId(),
+        id: uuid(),
         name: 'Caty',
         breed: 'Persan',
         description: 'Amazing persan cat',
@@ -22,7 +22,7 @@ const cats = createSlice({
   },
   reducers: {
     addCat: (state, action) => {
-      state.list = [...state.list, {...action.payload, id: uniqueId()}];
+      state.list = [...state.list, {...action.payload, id: uuid()}];
     },
     setCatView: (state, action) => {
       state.viewCat = action.payload;
