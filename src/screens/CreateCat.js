@@ -43,7 +43,7 @@ const CreateCat = props => {
               placeholder="Description"
             />
           </Item>
-          <Button onPress={handleSubmit}>
+          <Button rounded onPress={handleSubmit}>
             <Text>Submit</Text>
           </Button>
         </Form>

@@ -12,6 +12,8 @@ const ViewCat = ({navigation}) => {
         <Text>{cat.name}</Text>
         <Text>{cat.description}</Text>
         <Button
+          rounded
+          danger
           onPress={() => {
             dispatch(deleteCat(cat.id));
             navigation.navigate('Cats');

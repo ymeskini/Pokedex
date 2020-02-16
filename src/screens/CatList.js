@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import {Text} from 'react-native';
 import {useSelector, useDispatch} from 'react-redux';
 import {
   Button,
@@ -21,11 +21,14 @@ const CatList = ({navigation}) => {
   return (
     <Container>
       <Header>
-        <View>
-          <Button onPress={() => navigation.navigate('CreateCat')}>
-            <Text>New</Text>
+        <Right>
+          <Button
+            hasText
+            transparent
+            onPress={() => navigation.navigate('CreateCat')}>
+            <Text>NEW CAT</Text>
           </Button>
-        </View>
+        </Right>
       </Header>
       <Content padder>
         <List>
