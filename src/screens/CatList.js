@@ -25,7 +25,7 @@ const CatList = ({navigation}) => {
           <Button
             hasText
             transparent
-            onPress={() => navigation.navigate('CreateCat')}>
+            onPress={() => navigation.navigate('CatForm', {action: 'CREATE'})}>
             <Text>NEW CAT</Text>
           </Button>
         </Right>
@@ -36,7 +36,7 @@ const CatList = ({navigation}) => {
             <ListItem
               onPress={() => {
                 dispatch(setCatView(cat));
-                navigation.navigate('ViewCat');
+                navigation.navigate('CatView');
               }}
               key={cat.id}>
               <Left>

@@ -11,7 +11,7 @@ import {
 } from 'native-base';
 import {withFormik} from 'formik';
 
-import {addCat} from '../slices/cats';
+import {addCat, editCat} from '../slices/cats';
 
 const CreateCat = props => {
   const {handleChange, handleSubmit, handleBlur, values} = props;
@@ -53,9 +53,19 @@ const CreateCat = props => {
 };
 
 export default withFormik({
-  mapPropsToValues: () => ({name: '', breed: '', description: ''}),
+  mapPropsToValues: props => {
+    if (props.route.params.action === 'EDIT') {
+      return {
+        ...props.route.params.cat,
+      };
+    }
+
+    return {name: '', breed: '', description: ''};
+  },
   handleSubmit: (values, formikBag) => {
-    formikBag.props.dispatch(addCat(values));
+    const action =
+      formikBag.props.route.params.action === 'CREATE' ? addCat : editCat;
+    formikBag.props.dispatch(action(values));
     formikBag.props.navigation.navigate('Cats');
   },
 })(CreateCat);

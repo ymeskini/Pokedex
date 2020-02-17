@@ -20,6 +20,14 @@ const ViewCat = ({navigation}) => {
           }}>
           <Text>Remove this cat</Text>
         </Button>
+        <Button
+          rounded
+          danger
+          onPress={() => {
+            navigation.navigate('CatForm', {action: 'EDIT', cat});
+          }}>
+          <Text>Edit this cat</Text>
+        </Button>
       </Content>
     </Container>
   );

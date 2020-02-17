@@ -30,10 +30,17 @@ const cats = createSlice({
     deleteCat: (state, action) => {
       state.list = state.list.filter(cat => cat.id !== action.payload);
     },
+    editCat: (state, action) => {
+      const catId = state.viewCat.id;
+      const catToEdit = state.list.find(cat => cat.id === catId);
+      catToEdit.name = action.payload.name;
+      catToEdit.breed = action.payload.breed;
+      catToEdit.description = action.payload.description;
+    },
   },
 });
 
 export const {
   reducer: catReducer,
-  actions: {setCatView, addCat, deleteCat},
+  actions: {setCatView, addCat, deleteCat, editCat},
 } = cats;
