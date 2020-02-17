@@ -1,5 +1,4 @@
 import React from 'react';
-import {Text} from 'react-native';
 import {useSelector, useDispatch} from 'react-redux';
 import {
   Button,
@@ -11,6 +10,9 @@ import {
   Container,
   Content,
   Header,
+  Body,
+  Title,
+  Text,
 } from 'native-base';
 import {setCatView} from '../slices/cats';
 
@@ -21,12 +23,16 @@ const CatList = ({navigation}) => {
   return (
     <Container>
       <Header>
+        <Left />
+        <Body>
+          <Title>Cat Pokedex</Title>
+        </Body>
         <Right>
           <Button
             hasText
             transparent
             onPress={() => navigation.navigate('CatForm', {action: 'CREATE'})}>
-            <Text>NEW CAT</Text>
+            <Icon name="add" />
           </Button>
         </Right>
       </Header>
